@@ -44,7 +44,7 @@ jobs:
         make defconfig
         echo "CONFIG_TARGET_qualcommax=y" >> .config
         echo "CONFIG_TARGET_qualcommax_ipq807x=y" >> .config
-        echo "CONFIG_TARGET_qualcommax_ipq807x_DEVICE_xiaomi_redmi-router-ax6-ubootmod=y" >> .config
+        echo "CONFIG_TARGET_qualcommax_ipq807x_DEVICE_redmi_ax6=y" >> .config
         make defconfig
 
     - name: Download Package
