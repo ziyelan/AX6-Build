@@ -40,11 +40,16 @@ jobs:
     - name: Load Custom Configuration
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        cd openwrt
+        make defconfig
+        echo "CONFIG_TARGET_qualcommax=y" >> .config
+        echo "CONFIG_TARGET_qualcommax_ipq807x=y" >> .config
+        echo "CONFIG_TARGET_qualcommax_ipq807x_DEVICE_xiaomi_redmi-router-ax6-ubootmod=y" >> .config
+        make defconfig
 
     - name: Download Package
       run: |
         cd openwrt
-        make defconfig
         make download -j8
 
     - name: Compile the Firmware
