@@ -71,9 +71,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: AX6-Mihomo-Build-${{ github.run_id }}
-        files: |
-          ${{ env.FIRMWARE }}/*sysupgrade.bin
-          ${{ env.FIRMWARE }}/*factory.ubi
-          ${{ env.FIRMWARE }}/*mibib.bin
-          ${{ env.FIRMWARE }}/*uboot*
-          ${{ env.FIRMWARE }}/*u-boot*
+        files: ${{ env.FIRMWARE }}/*
