@@ -31,6 +31,12 @@ jobs:
     - name: Clone Source Code
       run: git clone $REPO_URL -b $REPO_BRANCH openwrt
 
+    - name: Add Custom Feeds
+      run: |
+        cd openwrt
+        echo "src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main" >> feeds.conf.default
+        echo "src-git istore https://github.com/linkease/istore.git;main" >> feeds.conf.default
+
     - name: Update & Install Feeds
       run: |
         cd openwrt
